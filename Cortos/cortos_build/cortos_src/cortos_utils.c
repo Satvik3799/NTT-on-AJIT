@@ -13,7 +13,7 @@ uint8_t* printingLockAddr = 0;
 
 void cortos_init_printing() {
   // allocate lock
-  uint8_t* lockStartAddrNc = (uint8_t*)1073823744; // non-cacheable
+  uint8_t* lockStartAddrNc = (uint8_t*)1073840128; // non-cacheable
   allocatedLocksNc[PRINTING_LOCK_INDEX] = 1;
   printingLockAddr = lockStartAddrNc + PRINTING_LOCK_INDEX;
 }

@@ -18,10 +18,10 @@ SECTIONS
     KEEP(*(.text.traptablebase))  /* NOTE: in file `trap_handlers.s` */
   }
 
-  . = 0x40011000;
+  . = 0x40015000;
   .rodata ALIGN(8) : { * (.rodata) * (.rodata.*) }
   .data   ALIGN(8) : { * (.data) * (.data.*)}
 
-  . = 0x40012000;
+  . = 0x40016000;
   .bss   ALIGN(8) : { * (.bss) }
 }

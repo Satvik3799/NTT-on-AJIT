@@ -14,12 +14,12 @@
 #define k 2
 
 // Function prototypes
-uint32_t bit_reverse(uint32_t num, uint32_t logn);
-uint32_t barret_reduction(uint32_t c1);
-void addr_gen(uint32_t s, uint32_t i, uint32_t l, uint32_t v, uint32_t *ie_r, uint32_t *io_r, uint32_t *iw);
-void butterfly_dit(uint32_t w, uint32_t u, uint32_t v, uint32_t *x, uint32_t *y);
-void ct_ntt(uint32_t *a, uint32_t *psis);
-void gen_tf(uint32_t *psis, uint32_t *inv_psis);
-void ntt_256(uint32_t *x, uint32_t *psis);
+uint16_t bit_reverse(uint16_t num, uint16_t logn);
+uint16_t barret_reduction(uint16_t c1);
+void addr_gen(uint16_t s, uint16_t i, uint16_t l, uint16_t v, uint16_t *ie_r, uint16_t *io_r, uint16_t *iw);
+void butterfly_dit(uint16_t w, uint16_t u, uint16_t v, uint16_t *x, uint16_t *y);
+void ct_ntt(uint16_t *a, uint16_t *psis);
+void gen_tf(uint16_t *psis, uint16_t *inv_psis);
+void ntt_256(uint16_t *x, uint16_t *psis);
 
 #endif // NTT_H

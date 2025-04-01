@@ -140,27 +140,27 @@ page_table_setup:
    set 0x40, %g5
    add %g5, %g1, %g3
    st %g2, [%g3]
-   !PTE: context=0, index=17, level=3,  ppnr=0x40011000, p_addr=0x44, cacheable=0x1, acc=0x3
-   ! *(PAGE_TABLE_BASE + 0x44) = 0x400118e (pte)
-   set 0x400118e, %g2
+   !PTE: context=0, index=17, level=3,  ppnr=0x40011000, p_addr=0x44, cacheable=0x1, acc=0x2
+   ! *(PAGE_TABLE_BASE + 0x44) = 0x400118a (pte)
+   set 0x400118a, %g2
    set 0x44, %g5
    add %g5, %g1, %g3
    st %g2, [%g3]
-   !PTE: context=0, index=18, level=3,  ppnr=0x40012000, p_addr=0x48, cacheable=0x1, acc=0x3
-   ! *(PAGE_TABLE_BASE + 0x48) = 0x400128e (pte)
-   set 0x400128e, %g2
+   !PTE: context=0, index=18, level=3,  ppnr=0x40012000, p_addr=0x48, cacheable=0x1, acc=0x2
+   ! *(PAGE_TABLE_BASE + 0x48) = 0x400128a (pte)
+   set 0x400128a, %g2
    set 0x48, %g5
    add %g5, %g1, %g3
    st %g2, [%g3]
-   !PTE: context=0, index=19, level=3,  ppnr=0x40013000, p_addr=0x4c, cacheable=0x1, acc=0x3
-   ! *(PAGE_TABLE_BASE + 0x4c) = 0x400138e (pte)
-   set 0x400138e, %g2
+   !PTE: context=0, index=19, level=3,  ppnr=0x40013000, p_addr=0x4c, cacheable=0x1, acc=0x2
+   ! *(PAGE_TABLE_BASE + 0x4c) = 0x400138a (pte)
+   set 0x400138a, %g2
    set 0x4c, %g5
    add %g5, %g1, %g3
    st %g2, [%g3]
-   !PTE: context=0, index=20, level=3,  ppnr=0x40014000, p_addr=0x50, cacheable=0x0, acc=0x3
-   ! *(PAGE_TABLE_BASE + 0x50) = 0x400140e (pte)
-   set 0x400140e, %g2
+   !PTE: context=0, index=20, level=3,  ppnr=0x40014000, p_addr=0x50, cacheable=0x1, acc=0x2
+   ! *(PAGE_TABLE_BASE + 0x50) = 0x400148a (pte)
+   set 0x400148a, %g2
    set 0x50, %g5
    add %g5, %g1, %g3
    st %g2, [%g3]
@@ -170,9 +170,9 @@ page_table_setup:
    set 0x54, %g5
    add %g5, %g1, %g3
    st %g2, [%g3]
-   !PTE: context=0, index=22, level=3,  ppnr=0x40016000, p_addr=0x58, cacheable=0x1, acc=0x4
-   ! *(PAGE_TABLE_BASE + 0x58) = 0x4001692 (pte)
-   set 0x4001692, %g2
+   !PTE: context=0, index=22, level=3,  ppnr=0x40016000, p_addr=0x58, cacheable=0x1, acc=0x3
+   ! *(PAGE_TABLE_BASE + 0x58) = 0x400168e (pte)
+   set 0x400168e, %g2
    set 0x58, %g5
    add %g5, %g1, %g3
    st %g2, [%g3]
@@ -182,21 +182,21 @@ page_table_setup:
    set 0x5c, %g5
    add %g5, %g1, %g3
    st %g2, [%g3]
-   !PTE: context=0, index=24, level=3,  ppnr=0x40018000, p_addr=0x60, cacheable=0x1, acc=0x3
-   ! *(PAGE_TABLE_BASE + 0x60) = 0x400188e (pte)
-   set 0x400188e, %g2
+   !PTE: context=0, index=24, level=3,  ppnr=0x40018000, p_addr=0x60, cacheable=0x0, acc=0x3
+   ! *(PAGE_TABLE_BASE + 0x60) = 0x400180e (pte)
+   set 0x400180e, %g2
    set 0x60, %g5
    add %g5, %g1, %g3
    st %g2, [%g3]
-   !PTE: context=0, index=25, level=3,  ppnr=0x40019000, p_addr=0x64, cacheable=0x1, acc=0x4
-   ! *(PAGE_TABLE_BASE + 0x64) = 0x4001992 (pte)
-   set 0x4001992, %g2
+   !PTE: context=0, index=25, level=3,  ppnr=0x40019000, p_addr=0x64, cacheable=0x1, acc=0x3
+   ! *(PAGE_TABLE_BASE + 0x64) = 0x400198e (pte)
+   set 0x400198e, %g2
    set 0x64, %g5
    add %g5, %g1, %g3
    st %g2, [%g3]
-   !PTE: context=0, index=26, level=3,  ppnr=0x4001a000, p_addr=0x68, cacheable=0x1, acc=0x3
-   ! *(PAGE_TABLE_BASE + 0x68) = 0x4001a8e (pte)
-   set 0x4001a8e, %g2
+   !PTE: context=0, index=26, level=3,  ppnr=0x4001a000, p_addr=0x68, cacheable=0x1, acc=0x4
+   ! *(PAGE_TABLE_BASE + 0x68) = 0x4001a92 (pte)
+   set 0x4001a92, %g2
    set 0x68, %g5
    add %g5, %g1, %g3
    st %g2, [%g3]
@@ -206,10 +206,34 @@ page_table_setup:
    set 0x6c, %g5
    add %g5, %g1, %g3
    st %g2, [%g3]
-   !PTE: context=0, index=28, level=3,  ppnr=0x4001c000, p_addr=0x70, cacheable=0x1, acc=0x4
-   ! *(PAGE_TABLE_BASE + 0x70) = 0x4001c92 (pte)
-   set 0x4001c92, %g2
+   !PTE: context=0, index=28, level=3,  ppnr=0x4001c000, p_addr=0x70, cacheable=0x1, acc=0x3
+   ! *(PAGE_TABLE_BASE + 0x70) = 0x4001c8e (pte)
+   set 0x4001c8e, %g2
    set 0x70, %g5
+   add %g5, %g1, %g3
+   st %g2, [%g3]
+   !PTE: context=0, index=29, level=3,  ppnr=0x4001d000, p_addr=0x74, cacheable=0x1, acc=0x4
+   ! *(PAGE_TABLE_BASE + 0x74) = 0x4001d92 (pte)
+   set 0x4001d92, %g2
+   set 0x74, %g5
+   add %g5, %g1, %g3
+   st %g2, [%g3]
+   !PTE: context=0, index=30, level=3,  ppnr=0x4001e000, p_addr=0x78, cacheable=0x1, acc=0x3
+   ! *(PAGE_TABLE_BASE + 0x78) = 0x4001e8e (pte)
+   set 0x4001e8e, %g2
+   set 0x78, %g5
+   add %g5, %g1, %g3
+   st %g2, [%g3]
+   !PTE: context=0, index=31, level=3,  ppnr=0x4001f000, p_addr=0x7c, cacheable=0x1, acc=0x3
+   ! *(PAGE_TABLE_BASE + 0x7c) = 0x4001f8e (pte)
+   set 0x4001f8e, %g2
+   set 0x7c, %g5
+   add %g5, %g1, %g3
+   st %g2, [%g3]
+   !PTE: context=0, index=32, level=3,  ppnr=0x40020000, p_addr=0x80, cacheable=0x1, acc=0x4
+   ! *(PAGE_TABLE_BASE + 0x80) = 0x4002092 (pte)
+   set 0x4002092, %g2
+   set 0x80, %g5
    add %g5, %g1, %g3
    st %g2, [%g3]
    !PTD: context=0, index=255, level=1, child_p_addr=0x3fc, p_addr=0x7fc

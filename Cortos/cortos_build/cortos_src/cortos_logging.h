@@ -23,12 +23,14 @@
 #define LOG_LEVEL_NONE      100
 
 // The log level the project is built with:
-#define CORTOS_LOG_LEVEL 30
-#define CORTOS_LOG_LEVEL_NAME "DEBUG"
+#define CORTOS_LOG_LEVEL 10
+#define CORTOS_LOG_LEVEL_NAME "ALL"
 
-#define CORTOS_ALL(...)     /*blank*/
+#define CORTOS_ALL(...) \
+__cortos_log_printf("ALL", __FILE__, __func__, __LINE__, __VA_ARGS__);
 
-#define CORTOS_TRACE(...)     /*blank*/
+#define CORTOS_TRACE(...) \
+__cortos_log_printf("TRACE", __FILE__, __func__, __LINE__, __VA_ARGS__);
 
 #define CORTOS_DEBUG(...) \
 __cortos_log_printf("DEBUG", __FILE__, __func__, __LINE__, __VA_ARGS__);

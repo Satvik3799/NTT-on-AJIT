@@ -12,9 +12,9 @@ _LINKER_SCRIPT="$_CORTOS_SRC_DIR/LinkerScript.txt";
 _PT="$AJIT_MINIMAL_PRINTF_TIMER";
 _AAR_MT="$AJIT_ACCESS_ROUTINES_MT";
 _AAR="$AJIT_ACCESS_ROUTINES";
-_IEEE_SOFT_FLOAT_LIB="$AJIT_HOME/application_development/soft_float/ieeelib/"
-# False
+# True
 compileToSparcUclibc.py \
+  -g \
   -o 2 \
   -V ${_CORTOS_VMAP} \
   -I ${AJIT_UCLIBC_HEADERS_DIR} \
@@ -37,7 +37,7 @@ compileToSparcUclibc.py \
   -L ${_LINKER_SCRIPT} \
   -D AJIT \
   -U \
-   -D CLK_FREQUENCY=80000000 -D USE_VMAP -C ./ -I $AJIT_HOME/application_development/thread_channel/include -C $AJIT_HOME/application_development/thread_channel/src ;
+   -D USE_CORTOS -F lm  -D USE_VMAP -C ./ -I $AJIT_HOME/application_development/thread_channel/include -C $AJIT_HOME/application_development/thread_channel/src -F funroll-loops ;
 
 #  -s ${_AAR_MT}/asm/clear_stack_pointers.s \
 #  -s ${_AAR_MT}/asm/trap_handlers_for_rtos.s \

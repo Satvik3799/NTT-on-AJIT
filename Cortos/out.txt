@@ -1,0 +1,48 @@
+################################################################
+#                  RUNNING DEBUG BUILD
+################################################################
+Init channel.
+initChannel 1: status=1.
+Entered main_01
+[INFO]  :   measure on single thread.
+ct_ntt started execution
+ct_ntt started execution
+[INFO:] NTT_256 Executing
+[RESULT]  :   Single-thread NTT
+1291, 53, 170, 2072, 1204, 1473, 972, 344, 2474, 2826, 1913, 1328, 207, 3308, 2032, 1126, 652, 1853, 1640, 493, 377, 2634, 1552, 1406, 2509, 483, 3270, 912, 906, 3062, 93, 691, 1306, 2172, 2824, 515, 2604, 1391, 1289, 3296, 3166, 2913, 1957, 2062, 2495, 822, 1027, 168, 2510, 2211, 2062, 445, 1536, 589, 1045, 1286, 165, 2948, 638, 2409, 2628, 2726, 2681, 1987, 1401, 63, 47, 2475, 555, 1508, 1595, 1353, 1843, 722, 2410, 1852, 776, 87, 2773, 3026, 2318, 3160, 2749, 1442, 2034, 1947, 1131, 3129, 853, 874, 129, 1840, 491, 2692, 87, 1908, ################################################################
+#                  RUNNING DEBUG BUILD
+################################################################
+Init channel.
+initChannel 1: status=1.
+Entered main_01
+[INFO]  :   measure on single thread.
+ct_ntt started execution
+ct_ntt started execution
+[INFO:] NTT_256 Executing
+[RESULT]  :   Single-thread NTT
+0, 3317, 0, 3317, 0, 3168, 0, 3168, 0, 950, 0, 950, 0, 327, 0, 327, 0, 927, 0, 927, 0, 1815, 0, 1815, 0, 2180, 0, 2180, 0, 2188, 0, 2188, 0, 811, 0, 811, 0, 3137, 0, 3137, 0, 163, 0, 163, 0, 564, 0, 564, 0, 126, 0, 126, 0, 2188, 0, 2188, 0, 2668, 0, 2668, 0, 56, ################################################################
+#                  RUNNING DEBUG BUILD
+################################################################
+Init channel.
+initChannel 1: status=1.
+Entered main_01
+[INFO]  :   measure on single thread.
+[RESULT]  :   Single-thread NTT
+[RESULT]  :   Single thread Times: 17101083.000000 0.000000
+[INFO]  :   Single-thread NTT measure on two threads.
+CoRTOS:LOG: DEBUG: (0,0): /home/ajit/ajit-toolchain/application_development/thread_channel/src/thread_channel.c:33, scheduleChannelJob() [28181200]. Channel 1: status = 2.
+
+CoRTOS:LOG: DEBUG: (0,1): /home/ajit/ajit-toolchain/application_development/thread_channel/src/thread_channel.c:87, getChannelJob() [30038991]. Channel 1: status = 3.
+
+CoRTOS:LOG: DEBUG: (0,1): /home/ajit/ajit-toolchain/application_development/thread_channel/src/thread_channel.c:50, setChannelResponse() [38726932]. Channel 1: status = 4.
+
+CoRTOS:LOG: DEBUG: (0,0): /home/ajit/ajit-toolchain/application_development/thread_channel/src/thread_channel.c:70, getChannelResponse() [40440452]. Channel 1: status = 1.
+
+
+[RESULT]  :   Dual thread Times: 14269502.000000 0.000000
+[RESULT]  :   Dual-thread NTT
+[INFO]  :   close the channel..
+CoRTOS:LOG: DEBUG: (0,0): /home/ajit/ajit-toolchain/application_development/thread_channel/src/thread_channel.c:33, scheduleChannelJob() [43600290]. Channel 1: status = 2.
+
+CoRTOS:LOG: DEBUG: (0,1): /home/ajit/ajit-toolchain/application_development/thread_channel/src/thread_channel.c:87, getChannelJob() [45465841]. Channel 1: status = 3.
+

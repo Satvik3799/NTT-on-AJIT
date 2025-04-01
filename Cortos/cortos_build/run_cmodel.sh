@@ -1,5 +1,9 @@
 #!/bin/sh
 
+echo "################################################################"
+echo "#                  RUNNING DEBUG BUILD"
+echo "################################################################"
+sleep 1;
 
 # run AJIT C Model on the generated mmap file
 _MAIN="main";
@@ -9,5 +13,4 @@ ajit_C_system_model \
   -t 2 \
   -i 0x40000000 \
   -m ${_MAIN}.mmap.remapped \
-  -w ${_MAIN}.wtrace \
 ;

@@ -32,14 +32,14 @@
 
 // Initial part is occupied by the program text.
 
-#define CORTOS_HEAP_START_ADDR 1073827840
-#define CORTOS_HEAP_END_ADDR 1073831935
+#define CORTOS_HEAP_START_ADDR 1073844224
+#define CORTOS_HEAP_END_ADDR 1073848319
 #define CORTOS_TOTAL_HEAP_SIZE_IN_BYTES 4096
 
 // All program stacks sit here.
-#define PROG_0_STACK_START_ADDR 1073844128
+#define PROG_0_STACK_START_ADDR 1073860512
 #define PROG_0_STACK_SIZE 8191
-#define PROG_1_STACK_START_ADDR 1073856416
+#define PROG_1_STACK_START_ADDR 1073872800
 #define PROG_1_STACK_SIZE 8191
 
 ////////////////////////////////////////////////////////////////////////////////
