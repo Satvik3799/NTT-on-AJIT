@@ -117,11 +117,11 @@ void setup()
 	__ajit_serial_set_baudrate__ (115200, 80000000);
 	__ajit_serial_set_uart_reset__ (0);
 
-	PRINTF("Init channel.\n");
+	// PRINTF("Init channel.\n");
 	// initialize scoreboard.
 	initChannel(&tc, 1);
 
-	PRINTF("initChannel %d: status=%d.\n", tc.id, tc.status);
+	// PRINTF("initChannel %d: status=%d.\n", tc.id, tc.status);
 }
 
 uint8_t main_00()
@@ -154,12 +154,12 @@ uint8_t main_00()
         2, 1, 3327, 0, 1, 1, 0, 3327, 3328, 1, 1, 0, 3328, 3328, 3328, 0, 3328, 0, 0, 3328, 0};
     
 
-	PRINTF("[INFO]  :   measure on single thread.\n");
+	// PRINTF("[INFO]  :   measure on single thread.\n");
 	uint64_t t00_0 =__ajit_get_clock_time();
 	ntt_256(x,psis);
 	uint64_t t00_1 = __ajit_get_clock_time();
 	
-    PRINTF("[RESULT]  :   Single-thread NTT\n");
+    // PRINTF("[RESULT]  :   Single-thread NTT\n");
     // for(i = 0; i < 256; i++){
     //     PRINTF("%d, ", x[i]);
     // }
@@ -168,16 +168,18 @@ uint8_t main_00()
 	PRINTF("[RESULT]  :   Single thread Times: %f %f\n",
 			(double) (t00_1 - t00_0));
 
-	PRINTF("[INFO]  :   Single-thread NTT measure on two threads.\n");
+	// PRINTF("[INFO]  :   Single-thread NTT measure on two threads.\n");
 
 	uint64_t t0 =__ajit_get_clock_time();
 	ntt_top(x, psis);
 	uint64_t t1 =__ajit_get_clock_time();
     PRINTF("\n");
 
+    PRINTF("[INFO]  :   Single-thread NTT measure on two threads done.\n");
+
 	PRINTF("[RESULT]  :   Dual thread Times: %f %f\n",
 			(double) (t1 - t0));
-    PRINTF("[RESULT]  :   Dual-thread NTT\n");
+    // PRINTF("[RESULT]  :   Dual-thread NTT\n");
     // for(i = 0; i < 256; i++){
     //     PRINTF("%d, ", x[i]);
     // }
@@ -195,7 +197,7 @@ uint8_t main_01 ()
 	void *__arg;
 
 	// PRINTF("------------------------------------------------------\n");
-	PRINTF("Entered main_01\n");
+	// PRINTF("Entered main_01\n");
 	// PRINTF("------------------------------------------------------\n");
 
 	while(1) 

@@ -1,0 +1,4 @@
+[RESULT]  :   Single thread Times: 2189930.000000 2.210258
+
+[RESULT]  :   Dual thread Times: 554429.000000 2.210258
+[INFO]  :   close the channel..
