@@ -1,0 +1,11 @@
+Init channel.
+initChannel 1: status=1.
+Entered main_01
+[INFO]  :   measure on single thread.
+[RESULT]  :   Single-thread NTT
+[RESULT]  :   Single thread Times: 2191052.000000 2.210258
+[INFO]  :   Single-thread NTT measure on two threads.
+
+[RESULT]  :   Dual thread Times: 554915.000000 2.150391
+[RESULT]  :   Dual-thread NTT
+[INFO]  :   close the channel..
