@@ -1,0 +1,26 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "/home/satvik/MTP/ajit-toolchain/application_development/thread_channel/src/",
+                "/home/satvik/MTP/ajit-toolchain/application_development/thread_channel/include/",
+                "/home/satvik/MTP/ajit-toolchain/application_development/athreads/src/",
+                "/home/satvik/MTP/ajit-toolchain/application_development/athreads/include/",
+                "/home/satvik/MTP/ajit-toolchain/AjitPublicResources/tools/ajit_access_routines_mt/src/",
+                "/home/satvik/MTP/ajit-toolchain/AjitPublicResources/tools/ajit_access_routines_mt/include/",
+                "/home/satvik/MTP/ajit-toolchain/AjitPublicResources/tools/minimal_printf_timer/include",
+                "/home/satvik/MTP/ajit-toolchain/AjitPublicResources/tools/minimal_printf_timer/src",
+                "/home/satvik/MTP/ajit-toolchain/validation_ladder/cortos2_tests/thread_channel/fft/ref_cortos_build/",
+                "/home/satvik/MTP/ajit-toolchain/validation_ladder/cortos2_tests/thread_channel/fft/ref_cortos_build/cortos_src"
+            ],
+            "defines": [],
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "linux-gcc-x64",
+            "compilerPath": "/usr/bin/gcc"
+        }
+    ],
+    "version": 4
+}

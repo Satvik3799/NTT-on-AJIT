@@ -76,7 +76,7 @@ Software:
     EnableSerial: No # Yes/No (Default: Yes)
     Debug: No # Yes/No (Default: No)
     #FirstDebugPort: 8888
-    BuildArgs: " -D USE_CORTOS -F lm  -D USE_VMAP -C ./ -I $AJIT_HOME/application_development/thread_channel/include -C $AJIT_HOME/application_development/thread_channel/src -F funroll-loops "
+    BuildArgs: "-F lm -D USE_CORTOS -D USE_VMAP -C ./ -I ./ -C /Satvik/Crystal_kyber/Dual_thread/src/ -I /Satvik/Crystal_kyber/Dual_thread/include/ -F funroll-loops -I $AJIT_HOME/application_development/thread_channel/include -C $AJIT_HOME/application_development/thread_channel/src -I $AJIT_HOME/application_development/athreads/include -C $AJIT_HOME/application_development/athreads/src "
 
   StartupFuncName: setup
   # Required: Which functions execute on each ajit thread.

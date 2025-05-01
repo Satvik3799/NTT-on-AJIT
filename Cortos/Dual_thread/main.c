@@ -3,107 +3,17 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <math.h>
+
 #include <cortos.h>
 #include <thread_channel.h>
 #include <ajit_access_routines.h>
 
-//satvik headers
-#include <ntt.h>
+#include "utils.h"
+#include "ntt.h"
+
+#include "utils.h"
 
 volatile ThreadChannel volatile tc;
-
-typedef struct thread_args{
-
-    uint16_t *x;
-    uint16_t *psis;
-
-} thread_args;
-
-void set_NTT_Args(thread_args *args, uint16_t *x, uint16_t *psis)
-{
-	args->x = x;
-	args->psis = psis;
-}
-
-
-void ntt_thread(void* args){
-    uint16_t *x = ((thread_args*) args) -> x;
-    uint16_t *psis = ((thread_args*) args) -> psis;
-    uint16_t i;
-    
-    // cortos_printf("[INFO]  :   Performing NTT on:\n");
-    // Print the received input
-    // for( i = 0; i < 128; i++) {
-    //     cortos_printf("%d ", x[i]);
-    // }
-    // cortos_printf("\n");
-    
-    // Perform NTT
-    ct_ntt(x, psis);
-
-    // cortos_printf("[INFO]  :   NTT_THREAD running\n");
-}
-
-void ntt_top(uint16_t *x, uint16_t *psis){
-
-    volatile ThreadChannel* volatile tc_ptr = &tc;
-    volatile thread_args volatile ntt_args;
-    uint8_t i;
-    uint16_t xe[128], xo[128];
-
-    // cortos_printf("[INFO]  :    NTT_TOP Entered\n");
-
-    // cortos_printf("[INFO]  :    X Array\n");
-    // for(i = 0; i < 128; i++){
-    //     cortos_printf("%d, ", x[i]);
-    // }
-
-    // cortos_printf("\n");
-
-    // cortos_printf("[INFO]  :    PSIS Array\n");
-
-    // for(i = 0; i < 128; i++){
-    //     cortos_printf("%d, ", psis[i]);
-    // }
-
-
-    // cortos_printf("\n");
-
-
-    //Divide the array
-    for (i = 0; i < 128; i++){
-        xe[i] = x[2*i];
-        xo[i] = x[2*i+1];    
-    }
-
-    // for(i = 0; i < 128; i++){
-    //     cortos_printf("xe Array [%d] - %d\n", i, xe[i]);
-    // }
-
-    // for(i = 0; i < 128; i++){
-    //     cortos_printf("xo Array [%d] - %d\n", i, xo[i]);
-    // }
-
-    // cortos_printf("[INFO]  :   NTT on Even indices - running on a thread\n");
-    
-    set_NTT_Args(&ntt_args, xe, psis);
-	while(scheduleChannelJob(tc_ptr, (void*) ntt_thread, &ntt_args))
-	{
-        // cortos_printf("[INFO] : NTT_TOP still running 1\n");
-	};   
-
-    // cortos_printf("[INFO]  :   NTT on Odd indices - running locally\n");
-    ct_ntt(xo, psis);
-
-	void* vptr = NULL;
-	while(getChannelResponse(tc_ptr, &vptr))
-	{
-        // cortos_printf("[INFO] : NTT_TOP waiting for response\n");
-	}
-
-    // cortos_printf("[INFO] : NTT_TOP Exiting\n");
-
-}
 
 void setup()
 {
@@ -156,11 +66,11 @@ uint8_t main_00()
     //     cortos_printf("%u ", inv_psis[i]);
     // }
     // cortos_printf("\n");
-	for(i=0; i<10; i++){
+	// for(i=0; i<10; i++){
         
-        cortos_printf("------------------------------------------------------\n");
-        cortos_printf("[INFO]  :   Example run - %d.\n", i);
-        cortos_printf("------------------------------------------------------\n");
+    //     cortos_printf("------------------------------------------------------\n");
+    //     cortos_printf("[INFO]  :   Example run - %d.\n", i);
+    //     cortos_printf("------------------------------------------------------\n");
         
         // cortos_printf("[INFO]  :   measure on single thread.\n");
         uint64_t t00_0 =__ajit_get_clock_time();
@@ -193,7 +103,7 @@ uint8_t main_00()
         cortos_printf("[RESULT]: Speed up = %f\n",
             ((double)(t00_1 - t00_0)) / ((double)(t1 - t0)));
 
-    }
+    // }
 
 	cortos_printf("[INFO]  :   close the channel..\n");
 	scheduleChannelJob(&tc, NULL, NULL);
@@ -224,11 +134,6 @@ uint8_t main_01 ()
 		else
 			break;
 	}
-
-    	// cortos_printf("------------------------------------------------------\n");
-	cortos_printf("[INFO]   :   Entered main_01\n");
-	// cortos_printf("------------------------------------------------------\n");
-
 
 	return(1);
 
