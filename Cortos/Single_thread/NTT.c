@@ -8,13 +8,14 @@
 #include <time.h>
 
 // Define necessary constants
-#define q 3329
-#define n2 256
-#define n 128
-#define inv_n 3303
-#define psin 17
-#define inv_psin 1175
-#define k 2
+
+// #ifdef p_512
+//     #define n2 512 //number of points in NTT
+//     #define n 256  //half number of points in NTT
+// #else
+    #define n2 256 //number of points in NTT
+    #define n 128  //half number of points in NTT
+// #endif
 
 #include "ntt.h"
 
@@ -123,17 +124,17 @@ void gen_tf(uint16_t *psis, uint16_t *inv_psis) {
 
 
 void  ntt_256(uint16_t *x, uint16_t *psis) {
-    uint16_t xe[128], xo[128];
+    uint16_t xe[n], xo[n];
     uint16_t i;
-    for ( i = 0; i < 128; i++) {
+    for ( i = 0; i < n; i++) {
         xe[i] = x[2 * i];
         xo[i] = x[2 * i + 1];
     }
     ct_ntt(xe, psis);
     ct_ntt(xo, psis);
-    for ( i = 0; i < 128; i++) {
+    for ( i = 0; i < n; i++) {
         x[i] = xe[i];
-        x[i + 128] = xo[i];
+        x[i + n] = xo[i];
     }
     cortos_printf("[INFO]  :   NTT_256 Executing\n");
 }

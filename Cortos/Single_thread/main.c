@@ -10,6 +10,16 @@
 //satvik headers
 #include <ntt.h>
 
+
+// #ifdef p_512
+//     #define n2 512 //number of points in NTT
+//     #define n 256  //half number of points in NTT
+// #else
+    #define n2 256 //number of points in NTT
+    #define n 128  //half number of points in NTT
+// #endif
+
+
 volatile ThreadChannel volatile tc;
 
 typedef struct thread_args{
@@ -18,6 +28,11 @@ typedef struct thread_args{
     uint16_t *psis;
 
 } thread_args;
+
+// uint32_t len(uint32_t *x){
+//     uint32_t size_arr = *(&arr + 1) - arr;
+//     return size_arr;
+// };
 
 void set_NTT_Args(thread_args *args, uint16_t *x, uint16_t *psis)
 {
@@ -33,7 +48,7 @@ void ntt_thread(void* args){
     
     // cortos_printf("[INFO]  :   Performing NTT on:\n");
     // Print the received input
-    // for( i = 0; i < 128; i++) {
+    // for( i = 0; i < n; i++) {
     //     cortos_printf("%d ", x[i]);
     // }
     // cortos_printf("\n");
@@ -49,12 +64,12 @@ void ntt_top(uint16_t *x, uint16_t *psis){
     volatile ThreadChannel* volatile tc_ptr = &tc;
     volatile thread_args volatile ntt_args;
     uint8_t i;
-    uint16_t xe[128], xo[128];
+    uint16_t xe[n], xo[n];
 
     // cortos_printf("[INFO]  :    NTT_TOP Entered\n");
 
     // cortos_printf("[INFO]  :    X Array\n");
-    // for(i = 0; i < 128; i++){
+    // for(i = 0; i < n; i++){
     //     cortos_printf("%d, ", x[i]);
     // }
 
@@ -62,7 +77,7 @@ void ntt_top(uint16_t *x, uint16_t *psis){
 
     // cortos_printf("[INFO]  :    PSIS Array\n");
 
-    // for(i = 0; i < 128; i++){
+    // for(i = 0; i < n; i++){
     //     cortos_printf("%d, ", psis[i]);
     // }
 
@@ -71,16 +86,16 @@ void ntt_top(uint16_t *x, uint16_t *psis){
 
 
     //Divide the array
-    for (i = 0; i < 128; i++){
+    for (i = 0; i < n; i++){
         xe[i] = x[2*i];
         xo[i] = x[2*i+1];    
     }
 
-    // for(i = 0; i < 128; i++){
+    // for(i = 0; i < n; i++){
     //     cortos_printf("xe Array [%d] - %d\n", i, xe[i]);
     // }
 
-    // for(i = 0; i < 128; i++){
+    // for(i = 0; i < n; i++){
     //     cortos_printf("xo Array [%d] - %d\n", i, xo[i]);
     // }
 
@@ -123,7 +138,7 @@ uint8_t main_00()
 
     uint8_t i,j;
 
-	// uint16_t psis[256] =  {
+	// uint16_t psis[n2] =  {
     //     1, 1729, 2580, 3289, 2642, 630, 1897, 848, 1062, 1919, 193, 797, 2786, 3260, 569, 1746,
     //     296, 2447, 1339, 1476, 3046, 56, 2240, 1333, 1426, 2094, 535, 2882, 2393, 2879, 1974, 
     //     821, 289, 331, 3253, 1756, 1197, 2304, 2277, 2055, 650, 1977,
@@ -136,7 +151,35 @@ uint8_t main_00()
     //     885, 2154
     //     };
 
-    uint16_t x[256] = {0, 1, 0, 0, 0, 0, 1, 3327, 0, 3328, 3328, 1, 2, 1, 3328, 1, 1, 0, 3328, 0,
+#ifdef p_512
+    uint16_t x[n2] = {0, 1, 0, 0, 0, 0, 1, 3327, 0, 3328, 3328, 1, 2, 1, 3328, 1, 1, 0, 3328, 0,
+        1, 0, 3326, 3328, 1, 3327, 2, 0, 1, 1, 0, 0, 3328, 3328, 1, 3328, 1, 0, 0, 3328, 2, 
+        2, 3327, 1, 2, 0, 0, 1, 0, 0, 0, 0, 1, 3328, 1, 1, 0, 0, 0, 0, 1, 1, 3328, 1, 0, 0, 
+        1, 3328, 0, 0, 2, 0, 0, 0, 3328, 3327, 3327, 0, 3328, 3328, 0, 3327, 1, 3328, 1, 3328, 
+        0, 2, 0, 3327, 1, 0, 1, 1, 0, 0, 3327, 3328, 0, 1, 0, 0, 3328, 0, 0, 3328, 3328, 0, 
+        3328, 3327, 1, 1, 3328, 0, 1, 1, 3328, 0, 3328, 3326, 0, 0, 3328, 0, 2, 3328, 0, 1, 
+        0, 0, 2, 3328, 0, 3328, 3328, 0, 0, 0, 1, 2, 3328, 3327, 1, 0, 2, 2, 2, 3327, 2, 0, 
+        0, 1, 0, 3328, 3328, 0, 1, 0, 0, 0, 3328, 3328, 1, 3, 3328, 1, 3328, 2, 0, 0, 0, 2, 
+        0, 1, 1, 3328, 1, 0, 3328, 3328, 0, 3328, 3328, 1, 3328, 3327, 1, 0, 1, 3328, 1, 3328, 
+        1, 3328, 1, 0, 3327, 3328, 1, 3, 3327, 0, 1, 3327, 3, 0, 1, 1, 1, 1, 3327, 3328, 3328, 
+        3328, 1, 3326, 0, 1, 1, 1, 0, 0, 1, 0, 0, 2, 0, 3328, 3328, 3328, 1, 3, 3328, 0, 3328, 
+        2, 1, 3327, 0, 1, 1, 0, 3327, 3328, 1, 1, 0, 3328, 3328, 3328, 0, 3328, 0, 0, 3328, 0,
+        
+        0, 1, 0, 0, 0, 0, 1, 3327, 0, 3328, 3328, 1, 2, 1, 3328, 1, 1, 0, 3328, 0,
+        1, 0, 3326, 3328, 1, 3327, 2, 0, 1, 1, 0, 0, 3328, 3328, 1, 3328, 1, 0, 0, 3328, 2, 
+        2, 3327, 1, 2, 0, 0, 1, 0, 0, 0, 0, 1, 3328, 1, 1, 0, 0, 0, 0, 1, 1, 3328, 1, 0, 0, 
+        1, 3328, 0, 0, 2, 0, 0, 0, 3328, 3327, 3327, 0, 3328, 3328, 0, 3327, 1, 3328, 1, 3328, 
+        0, 2, 0, 3327, 1, 0, 1, 1, 0, 0, 3327, 3328, 0, 1, 0, 0, 3328, 0, 0, 3328, 3328, 0, 
+        3328, 3327, 1, 1, 3328, 0, 1, 1, 3328, 0, 3328, 3326, 0, 0, 3328, 0, 2, 3328, 0, 1, 
+        0, 0, 2, 3328, 0, 3328, 3328, 0, 0, 0, 1, 2, 3328, 3327, 1, 0, 2, 2, 2, 3327, 2, 0, 
+        0, 1, 0, 3328, 3328, 0, 1, 0, 0, 0, 3328, 3328, 1, 3, 3328, 1, 3328, 2, 0, 0, 0, 2, 
+        0, 1, 1, 3328, 1, 0, 3328, 3328, 0, 3328, 3328, 1, 3328, 3327, 1, 0, 1, 3328, 1, 3328, 
+        1, 3328, 1, 0, 3327, 3328, 1, 3, 3327, 0, 1, 3327, 3, 0, 1, 1, 1, 1, 3327, 3328, 3328, 
+        3328, 1, 3326, 0, 1, 1, 1, 0, 0, 1, 0, 0, 2, 0, 3328, 3328, 3328, 1, 3, 3328, 0, 3328, 
+        2, 1, 3327, 0, 1, 1, 0, 3327, 3328, 1, 1, 0, 3328, 3328, 3328, 0, 3328, 0, 0, 3328, 0        
+    };
+#else
+    uint16_t x[n2] = {0, 1, 0, 0, 0, 0, 1, 3327, 0, 3328, 3328, 1, 2, 1, 3328, 1, 1, 0, 3328, 0,
         1, 0, 3326, 3328, 1, 3327, 2, 0, 1, 1, 0, 0, 3328, 3328, 1, 3328, 1, 0, 0, 3328, 2, 
         2, 3327, 1, 2, 0, 0, 1, 0, 0, 0, 0, 1, 3328, 1, 1, 0, 0, 0, 0, 1, 1, 3328, 1, 0, 0, 
         1, 3328, 0, 0, 2, 0, 0, 0, 3328, 3327, 3327, 0, 3328, 3328, 0, 3327, 1, 3328, 1, 3328, 
@@ -148,14 +191,16 @@ uint8_t main_00()
         1, 3328, 1, 0, 3327, 3328, 1, 3, 3327, 0, 1, 3327, 3, 0, 1, 1, 1, 1, 3327, 3328, 3328, 
         3328, 1, 3326, 0, 1, 1, 1, 0, 0, 1, 0, 0, 2, 0, 3328, 3328, 3328, 1, 3, 3328, 0, 3328, 
         2, 1, 3327, 0, 1, 1, 0, 3327, 3328, 1, 1, 0, 3328, 3328, 3328, 0, 3328, 0, 0, 3328, 0};
+#endif
 
-    uint16_t psis[128], inv_psis[128];
+    uint16_t psis[n], inv_psis[n];
     gen_tf(psis, inv_psis);
-    cortos_printf("[INFO]  :   Twiddle factors generated.\n");
+    cortos_printf("[INFO]           :           Twiddle factors generated.\n");
+    cortos_printf("[INFO]           :           psis length is %d.\n", (*(&psis + 1) - psis));
 
     //  // Print the PSIS array
     // cortos_printf("[INFO]   :   PSIS array:\n");
-    // for (i = 0; i < 128; i++) {
+    // for (i = 0; i < n; i++) {
     //     cortos_printf("%u, ", psis[i]);
     // }
     // cortos_printf("\n");
@@ -169,10 +214,10 @@ uint8_t main_00()
 	
 	// cortos_printf("[INFO]  :   measure on single thread.\n");
 	uint64_t t00_0 =__ajit_get_clock_time();
-	ntt_256(x,psis);
+	// ntt_256(x,psis);
 	uint64_t t00_1 = __ajit_get_clock_time();
 
-	cortos_printf("[RESULT]  :   Single thread Times: %f %f\n", (double) (t00_1 - t00_0));
+	cortos_printf("[RESULT]           :           Single thread Times: %f %f\n", (double) (t00_1 - t00_0));
     
     // cortos_printf("[RESULT]  :   Single-thread NTT:\n");
     // for(j = 0; j < 1; j++){
@@ -180,22 +225,26 @@ uint8_t main_00()
     // }
     // cortos_printf("\n");
 
-	cortos_printf("[INFO]  :   Dual-thread NTT measure on two threads starts here.\n");
+	cortos_printf("[INFO]           :           Dual-thread NTT measure on two threads starts here.\n");
 
 	uint64_t t0 =__ajit_get_clock_time();
-	ntt_top(x, psis);
+	// ntt_top(x, psis);
 	uint64_t t1 =__ajit_get_clock_time();
     cortos_printf("\n");
 
     // cortos_printf("[INFO]  :   Single-thread NTT measure on two threads done.\n");
 
-	cortos_printf("[RESULT]  :   Dual thread Times: %f %f\n", (double) (t1 - t0));
+	cortos_printf("[RESULT]           :           Dual thread Times: %f %f\n", (double) (t1 - t0));
     // cortos_printf("[RESULT]  :   Dual-thread NTT\n");
     // for(i = 0; i < 1; i++){
     //     cortos_printf("%d, ", x[i]);
     // }
     // cortos_printf("\n");
 	
+    cortos_printf("[RESULT]           :           Speed up = %f\n",
+        ((double)(t00_1 - t00_0)) / ((double)(t1 - t0)));
+
+
 	cortos_printf("[INFO]  :   close the channel..\n");
 	scheduleChannelJob(&tc, NULL, NULL);
 

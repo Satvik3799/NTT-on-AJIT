@@ -1,0 +1,44 @@
+[INFO]   :   Entered main_01
+[INFO]  :   Twiddle factors generated.
+------------------------------------------------------
+[INFO]  :   Example run - 0.
+------------------------------------------------------
+[INFO]  :   NTT_256 Executing
+[RESULT]  :   Single thread Times: 2237392.000000 2.209282
+
+[RESULT]  :   Dual thread Times: 555545.000000 2.209282
+[RESULT]: Speed up = 4.027382
+------------------------------------------------------
+[INFO]  :   Example run - 1.
+------------------------------------------------------
+[INFO]  :   NTT_256 Executing
+[RESULT]  :   Single thread Times: 2241800.000000 2.209282
+
+[RESULT]  :   Dual thread Times: 556399.000000 2.209282
+[RESULT]: Speed up = 4.029123
+------------------------------------------------------
+[INFO]  :   Example run - 2.
+------------------------------------------------------
+[INFO]  :   NTT_256 Executing
+[RESULT]  :   Single thread Times: 2239368.000000 2.209282
+
+[RESULT]  :   Dual thread Times: 558965.000000 2.209282
+[RESULT]: Speed up = 4.006276
+------------------------------------------------------
+[INFO]  :   Example run - 3.
+------------------------------------------------------
+[INFO]  :   NTT_256 Executing
+[RESULT]  :   Single thread Times: 2236504.000000 2.209282
+
+[RESULT]  :   Dual thread Times: 553949.000000 2.209282
+[RESULT]: Speed up = 4.037383
+------------------------------------------------------
+[INFO]  :   Example run - 4.
+------------------------------------------------------
+	[INFO]  :   NTT_256 Executing
+[RESULT]  :   Single thread Times: 2239058.000000 2.209282
+^[[H^[
+[RESULT]  :   Dual thread Times: 558223.000000 2.209282
+[RESULT]: Speed up = 4.011046
+[INFO]  :   close the channel..
+

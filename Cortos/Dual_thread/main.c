@@ -156,7 +156,7 @@ uint8_t main_00()
     //     cortos_printf("%u ", inv_psis[i]);
     // }
     // cortos_printf("\n");
-	for(i=0; i<10; i++){
+	for(i=0; i<5; i++){
         
         cortos_printf("------------------------------------------------------\n");
         cortos_printf("[INFO]  :   Example run - %d.\n", i);

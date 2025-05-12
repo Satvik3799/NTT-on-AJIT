@@ -76,7 +76,7 @@ Software:
     EnableSerial: No # Yes/No (Default: Yes)
     Debug: No # Yes/No (Default: No)
     #FirstDebugPort: 8888
-    BuildArgs: " -D USE_CORTOS -F lm  -D USE_VMAP -C ./ -I $AJIT_HOME/application_development/thread_channel/include -C $AJIT_HOME/application_development/thread_channel/src -F funroll-loops "
+    BuildArgs: "-D USE_CORTOS -F lm  -D USE_VMAP -C ./ -I $AJIT_HOME/application_development/thread_channel/include -C $AJIT_HOME/application_development/thread_channel/src -F funroll-loops "
 
   StartupFuncName: setup
   # Required: Which functions execute on each ajit thread.

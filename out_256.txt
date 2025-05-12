@@ -1,0 +1,9 @@
+[INFO]   :   Entered main_01
+[INFO]           :           Twiddle factors generated.
+[INFO]  :   NTT_256 Executing
+[RESULT]           :           Single thread Times: 2246112.000000 2.202446
+[INFO]           :           Dual-thread NTT measure on two threads starts here.
+
+[RESULT]           :           Dual thread Times: 556523.000000 2.202446
+[RESULT]           :           Speed up = 4.035973
+[INFO]  :   close the channel..
