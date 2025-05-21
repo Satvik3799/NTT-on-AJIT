@@ -2,7 +2,7 @@ This branch is for comparing NTT running on single thread and two threads.
 
 NTT of input array is computed and then INTT of the same array is computed to get the same input message, which is verified by checking if all 256 elements are same or not. 
 
-### Logs from the AJIT C Simulation:
+Logs from the AJIT C Simulation:
 
 [INFO]           :           Twiddle factors generated.
 [RESULT]         :           PSIS array:           1  1729  2580  3289  2642  
