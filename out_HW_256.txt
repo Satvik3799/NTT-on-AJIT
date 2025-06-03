@@ -1,0 +1,28 @@
+Init channel.
+[INFO]           :           Entered main_01
+[INFO]           :           Twiddle factors generated.
+[RESULT]         :           PSIS array:           1  1729  2580  3289  2642  
+[RESULT]         :           INV_PSIS array:           1 1600 40 749 2481 
+[INFO]           :           measure on single thread.
+[INFO]           :           Input of NTT:           0  1  2  3  4  
+[RESULT]         :           Single thread NTT Times: 451955.000000
+[RESULT]         :           Single-thread NTT:           2429  425  1865  624  2483  
+[RESULT]         :           Single thread INTT Times: 132820.000000
+[RESULT]         :           Single-thread INTT:           0  1  2  3  4  
+[RESULT]         :           Single thread Verify:
+1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  
+[INFO]           :           Dual-thread NTT measure on two threads starts here.
+[RESULT]         :           Dual-thread NTT Times: 226906.000000
+[RESULT]         :           Result of Dual-thread NTT:           2429  425  1865  624  2483  
+[INFO]           :           Input of Dual-thread INTT:           2429  425  1865  624  2483  
+[RESULT]         :           Dual-thread INTT Times: 69546.000000
+[RESULT]         :           Result of Dual-thread INTT           0  1  2  3  4  
+[RESULT]         :           Dual-thread Verify:
+1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  
+------------------------------------------------------
+[RESULT]         :           NTT Speed up = 1.991816
+------------------------------------------------------
+------------------------------------------------------
+[RESULT]         :           INTT Speed up = 1.909815
+------------------------------------------------------
+[INFO]           :           close the channel..
